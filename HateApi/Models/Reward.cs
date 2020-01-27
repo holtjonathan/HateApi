@@ -7,6 +7,7 @@ namespace HateApi.Models
 {
     public class Reward
     {
+        //Can you see this?
         public int RewardId { get; set; }
         public string Description { get; set; }
 
