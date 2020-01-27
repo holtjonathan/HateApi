@@ -9,12 +9,6 @@ namespace HateApi.Models
     {
         public int SpecialId { get; set; }
         public string Name { get; set; }
-
-        public int SpecialTypeId { get; set; }
-        public SpecialType SpecialType { get; set; }
-
-
-        public int ScenarioId { get; set; }
-        public Scenario Scenario { get; set; }
+        public string Description { get; set; }
     }
 }

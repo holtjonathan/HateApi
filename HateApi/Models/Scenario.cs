@@ -11,14 +11,6 @@ namespace HateApi.Models
         public int ScenarioId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Prereq { get; set; }
-        public List<Special> Specials { get; set; }
-        public int AttackerRewardId { get; set; }
-        public int DefenderRewardId { get; set; }
-
-
-        public virtual Reward AttackerReward { get; set; }
-
-        public virtual Reward DefenderReward { get; set; }
+        public IList<ScenarioRewardAssignment> ScenarioRewardAssignments { get; set; }
     }
 }

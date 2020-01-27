@@ -3,14 +3,16 @@ using HateApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HateApi.Migrations
 {
     [DbContext(typeof(HateContext))]
-    partial class HateContextModelSnapshot : ModelSnapshot
+    [Migration("20200127191924_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,24 +68,6 @@ namespace HateApi.Migrations
                     b.ToTable("Scenarios");
                 });
 
-            modelBuilder.Entity("HateApi.Models.ScenarioRewardAssignment", b =>
-                {
-                    b.Property<int>("RewardId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ScenarioId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ScenarioRewardAssignmentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("RewardId", "ScenarioId");
-
-                    b.HasIndex("ScenarioId");
-
-                    b.ToTable("ScenarioRewardAssignments");
-                });
-
             modelBuilder.Entity("HateApi.Models.Special", b =>
                 {
                     b.Property<int>("SpecialId")
@@ -100,21 +84,6 @@ namespace HateApi.Migrations
                     b.HasKey("SpecialId");
 
                     b.ToTable("Specials");
-                });
-
-            modelBuilder.Entity("HateApi.Models.ScenarioRewardAssignment", b =>
-                {
-                    b.HasOne("HateApi.Models.Reward", "Reward")
-                        .WithMany("ScenarioRewardAssignments")
-                        .HasForeignKey("RewardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HateApi.Models.Scenario", "Scenario")
-                        .WithMany("ScenarioRewardAssignments")
-                        .HasForeignKey("ScenarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
