@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace HateApi.Models
@@ -14,6 +15,8 @@ namespace HateApi.Models
         public int HateReward { get; set; }
         public string UnitUpgrade { get; set; }
         public string RewardType { get; set; }
+
+        //[JsonIgnore]
         public IList<ScenarioRewardAssignment> ScenarioRewardAssignments { get; set; }
     }
 }

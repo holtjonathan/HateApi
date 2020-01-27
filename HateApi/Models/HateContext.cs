@@ -10,12 +10,12 @@ namespace HateApi.Models
     {
         public HateContext(DbContextOptions options) : base(options) { }
 
-        DbSet<Scenario> Scenarios { get; set; }
-        DbSet<Special> Specials { get; set; }
+        public DbSet<Scenario> Scenarios { get; set; }
+        public DbSet<Special> Specials { get; set; }
         //DbSet<SpecialType> SpecialTypes { get; set; }
-        DbSet<Reward> Rewards { get; set; }
-        DbSet<ScenarioRewardAssignment> ScenarioRewardAssignments { get; set; }
-        DbSet<ScenarioSpecialAssignment> ScenarioSpecialAssignments { get; set; }
+        public DbSet<Reward> Rewards { get; set; }
+        public DbSet<ScenarioRewardAssignment> ScenarioRewardAssignments { get; set; }
+        public DbSet<ScenarioSpecialAssignment> ScenarioSpecialAssignments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -48,23 +48,6 @@ namespace HateApi.Models
                 new ScenarioSpecialAssignment() { ScenarioSpecialAssignmentId = 1, SpecialId = 1, ScenarioId = 1 },
                 new ScenarioSpecialAssignment() { ScenarioSpecialAssignmentId = 2, SpecialId = 2, ScenarioId = 1 }
                 );
-
-            //modelBuilder.Entity<Reward>().HasData(
-            //    new Reward() { RewardId = 1, Description = "You get blah!" },
-            //    new Reward() { RewardId = 2, Description = "You get some other blah!" });
-
-            //modelBuilder.Entity<Scenario>().HasData(
-            //    new Scenario() { ScenarioId = 1, Name = "TestScenario1", Description = "Blah blah blah", Prereq = "Must have X, Y, and Z"},
-            //    new Scenario() { ScenarioId = 2, Name = "TestScenario2", Description = "asdfasfdsf", Prereq = "adsfasfd" },
-            //    new Scenario() { ScenarioId = 3, Name = "We are trapped!", Description = "We have to fight our way throught the mountain", Prereq = null });
-
-            //modelBuilder.Entity<SpecialType>().HasData(
-            //    new SpecialType() { SpecialTypeId = 1, Name = "Special Actions" },
-            //    new SpecialType() { SpecialTypeId = 2, Name = "Special Rules" });
-
-            //modelBuilder.Entity<Special>().HasData(
-            //    new Special() { SpecialId = 1, Name = "Special1", ScenarioId = 1, SpecialTypeId = 1 },
-            //    new Special() { SpecialId = 2, Name = "Special2", ScenarioId = 1, SpecialTypeId = 2 });
         }
     }
 }
