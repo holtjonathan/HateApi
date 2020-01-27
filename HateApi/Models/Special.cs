@@ -10,5 +10,6 @@ namespace HateApi.Models
         public int SpecialId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public IList<ScenarioSpecialAssignment> ScenarioSpecialAssignments { get; set; }
     }
 }
