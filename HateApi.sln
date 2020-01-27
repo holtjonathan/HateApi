@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HateApi", "HateApi\HateApi.csproj", "{C1CD09E2-3CB8-4FCD-8D9A-8D117DC80F84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1CD09E2-3CB8-4FCD-8D9A-8D117DC80F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1CD09E2-3CB8-4FCD-8D9A-8D117DC80F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1CD09E2-3CB8-4FCD-8D9A-8D117DC80F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1CD09E2-3CB8-4FCD-8D9A-8D117DC80F84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7A6ECAB-8E86-4E2E-A08A-5B75F3856263}
+	EndGlobalSection
+EndGlobal
