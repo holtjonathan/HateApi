@@ -1,3 +1,5 @@
+using GraphiQl;
+using GraphQL.Server.Ui.Playground;
 using HateApi.Models;
 using HateApi.Models.DataManager;
 using HateApi.Models.Repository;
@@ -43,7 +45,8 @@ namespace HateApi
             }
 
             app.UseRouting();
-
+            //app.UseGraphiQl("/graphql");
+            app.UseGraphQLPlayground(options: new GraphQLPlaygroundOptions());
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

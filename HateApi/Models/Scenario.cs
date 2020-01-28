@@ -13,8 +13,9 @@ namespace HateApi.Models
         public string Name { get; set; }
         public string Description { get; set; }
 
+        [JsonIgnore]
         public IList<ScenarioRewardAssignment> ScenarioRewardAssignments { get; set; }
-        //[JsonIgnore]
+        [JsonIgnore]
         public IList<ScenarioSpecialAssignment> ScenarioSpecialAssignments { get; set; }
     }
 }
