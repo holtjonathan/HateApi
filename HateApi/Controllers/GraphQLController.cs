@@ -42,6 +42,32 @@ namespace HateApi.Controllers
     }
 }
 
+//ui/playground
+//{
+//  scenario(id: 1)
+//{
+//    scenarioId
+//    description
+//    name
+//    scenarioRewardAssignments {
+//        reward {
+//            name
+//            description
+//          hateReward
+//        resourceReward
+//        }
+//    }
+//    scenarioSpecialAssignments {
+//        scenarioSpecialAssignmentId
+//        special {
+//            name
+//            description
+//        }
+//    }
+//}
+//}
+
+
 //ui/playground example:
 //{
 //  scenarios {

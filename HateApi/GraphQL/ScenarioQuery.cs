@@ -18,7 +18,8 @@ namespace HateApi.GraphQL
                   var id = context.GetArgument<int>("id");
                   var scenario = db
               .Scenarios
-              //.Include(a => a.)
+              .Include(a => a.ScenarioRewardAssignments).ThenInclude(f => f.Reward)
+              .Include(a => a.ScenarioSpecialAssignments).ThenInclude(f => f.Special)
               .FirstOrDefault(i => i.ScenarioId == id);
                   return scenario;
               });
