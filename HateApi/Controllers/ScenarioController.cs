@@ -9,20 +9,77 @@ namespace HateApi.Controllers
     [ApiController]
     public class ScenarioController : ControllerBase
     {
-        private readonly IHateManager _hateRepo;
+        private readonly IDataRepository<Scenario> _dataRepository;
 
-        public ScenarioController(IHateManager dataRepository)
+        public ScenarioController(IDataRepository<Scenario> dataRepository)
         {
-            _hateRepo = dataRepository;
+            _dataRepository = dataRepository;
         }
 
-        // GET: api/Employee
         [HttpGet]
         public IActionResult Get()
         {
-            var scenarios = _hateRepo.GetAll();
-            //IEnumerable<Scenario> scenarios = _hateRepo.GetAll();
+            IEnumerable<Scenario> scenarios = _dataRepository.GetAll();
             return Ok(scenarios);
+        }
+
+        [HttpGet("{id}", Name = "GetScenario")]
+        public IActionResult Get(long id)
+        {
+            var scenario = _dataRepository.Get(id);
+
+            if (scenario == null)
+            {
+                return NotFound("The Scenario record couldn't be found.");
+            }
+
+            return Ok(scenario);
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] Scenario scenario)
+        {
+            if (scenario == null)
+            {
+                return BadRequest("Scenario is null.");
+            }
+
+            _dataRepository.Add(scenario);
+            return CreatedAtRoute(
+                  "GetScenario",
+                  new { Id = scenario.ScenarioId },
+                  scenario);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(long id, [FromBody] Scenario scenario)
+        {
+            if (scenario == null)
+            {
+                return BadRequest("Scenario is null.");
+            }
+
+            var scenariotoUpdate = _dataRepository.Get(id);
+            if (scenariotoUpdate == null)
+            {
+                return NotFound("The Scenario record couldn't be found.");
+            }
+
+            _dataRepository.Update(scenariotoUpdate, scenario);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(long id)
+        {
+            var scenario = _dataRepository.Get(id);
+            if (scenario == null)
+            {
+                return NotFound("The Scenario record couldn't be found.");
+            }
+
+            _dataRepository.Delete(scenario);
+            return NoContent();
         }
     }
 }

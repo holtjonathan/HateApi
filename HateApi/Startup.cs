@@ -3,13 +3,11 @@ using HateApi.Models.DataManager;
 using HateApi.Models.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Newtonsoft.Json;
 
 namespace HateApi
 {
@@ -28,11 +26,11 @@ namespace HateApi
         {
             services.AddDbContext<HateContext>(item => item.UseSqlServer(Configuration.GetConnectionString("myconn")));
             services.AddScoped<IHateManager, HateManager>();
-            services.AddMvc()
-                //.AddNewtonsoftJson(options => {
-                //    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                //})
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddScoped<IDataRepository<Scenario>, ScenarioManager>();
+            services.AddScoped<IDataRepository<Reward>, RewardManager>();
+            services.AddScoped<IDataRepository<Special>, SpecialManager>();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
         }
 
