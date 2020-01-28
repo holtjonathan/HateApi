@@ -28,14 +28,6 @@ namespace HateApi.Controllers
                 Query = new ScenarioQuery(_db)
             };
 
-            //var result = await new DocumentExecuter().ExecuteAsync(_ =>
-            //{
-            //    _.Schema = schema;
-            //    _.Query = query.Query;
-            //    _.OperationName = query.OperationName;
-            //    _.Inputs = inputs;
-            //});
-
             var json = await schema.ExecuteAsync(_ =>
             {
                 _.Schema = schema;
@@ -46,13 +38,34 @@ namespace HateApi.Controllers
             });
 
             return Ok(json);
-
-            //if (result.Errors?.Count > 0)
-            //{
-            //    return BadRequest(result.Errors);
-            //}
-
-            //return Ok(result);
         }
     }
 }
+
+//ui/playground example:
+//{
+//  scenarios {
+//    scenarioId
+//    description
+//    name
+//  }
+//  rewards {
+//    rewardId
+//    name
+//    description
+//    hateReward
+//    resourceReward
+//    unitUpgrade
+//  }
+//  specials {
+//    description
+//    name
+//    specialId
+//  }
+//  scenario(id: 3)
+//{
+//    scenarioId
+//    description
+//    name
+//  }
+//}
