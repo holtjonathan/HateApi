@@ -42,6 +42,6 @@ namespace HateApi.Models.DataManager
         {
             _hateContext.Remove(special);
             _hateContext.SaveChanges();
-        }1
+        }
     }
 }
