@@ -12,7 +12,7 @@ namespace HateApi.Controllers
         private readonly IHateManager _hateRepo;
 
         public ScenarioController(IHateManager dataRepository)
-        {
+        {//test
             _hateRepo = dataRepository;
         }
 
