@@ -28,7 +28,10 @@ namespace HateApi.GraphQL
               "Scenarios",
               resolve: context =>
               {
-                  var scenarios = db.Scenarios;//.Include(a => a.Books);
+                  var scenarios = db
+                  .Scenarios
+                  .Include(a => a.ScenarioRewardAssignments).ThenInclude(f => f.Reward)
+                  .Include(a => a.ScenarioSpecialAssignments).ThenInclude(f => f.Special);
                   return scenarios;
               });
 
