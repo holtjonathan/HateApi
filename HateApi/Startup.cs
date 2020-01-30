@@ -44,6 +44,13 @@ namespace HateApi
                 app.UseDeveloperExceptionPage();
             }
 
+
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+               // .AllowCredentials());
+
             app.UseRouting();
             //app.UseGraphiQl("/graphql");
             app.UseGraphQLPlayground(options: new GraphQLPlaygroundOptions());
