@@ -39,7 +39,7 @@ namespace HateApi.GraphQL
               "Rewards",
               resolve: context =>
               {
-                  var rewards = db.Rewards;//.Include(a => a.Books);
+                  var rewards = db.Rewards;
                   return rewards;
               });
 
@@ -47,7 +47,7 @@ namespace HateApi.GraphQL
               "Specials",
               resolve: context =>
               {
-                  var specials = db.Specials;//.Include(a => a.Books);
+                  var specials = db.Specials;
                   return specials;
               });
         }
